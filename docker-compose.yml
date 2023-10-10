@@ -23,7 +23,6 @@ services:
       - jenkins-data:/var/jenkins_home
     networks:
       - jenkins
-    network_mode: bridge
 
   jenkins:
     image: jenkins/jenkins:lts-jdk11
@@ -43,4 +42,3 @@ services:
       - 50000:50000
     networks:
       - jenkins
-    network_mode: bridge
