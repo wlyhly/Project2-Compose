@@ -13,8 +13,9 @@ services:
   dind:
     image: docker:dind
     container_name: dind
-    privileged: true
+    hostname: dind
     user: root
+    privileged: true
     environment:
       - DOCKER_TLS_CERTDIR=/certs
     volumes:
@@ -30,7 +31,7 @@ services:
     restart: unless-stopped
     user: root
     environment:
-      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_HOST=tcp://dind:2376
       - DOCKER_CERT_PATH=/certs/client
       - DOCKER_TLS_VERIFY=1
     volumes:
